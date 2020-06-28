@@ -53,8 +53,8 @@ namespace Covid_19_Game
 
             for (int i = 0; i < wall.Length; i++)
             {
-                int xCoordinate = rand.Next(this.Width - 50);
-                int yCoordicate = rand.Next(this.Height - 50);
+                int xCoordinate = rand.Next(this.Width - 10);
+                int yCoordicate = rand.Next(this.Height - 10);
 
                 wall[i] = new Walls(xCoordinate, yCoordicate, wallImage);
                 Controls.Add(wall[i].WallPB);
@@ -117,6 +117,7 @@ namespace Covid_19_Game
                 }
             }
         }
+
     }
 }
             
