@@ -27,7 +27,7 @@ namespace Covid_19_Game
         Bitmap personImage = Properties.Resources.person;
         Bitmap sanitizerImage = Properties.Resources.sanitizer;
 
-        const int numberOfwalls = 1;
+        const int numberOfwalls = 5;
         Walls[] wall = new Walls[numberOfwalls];
 
         Bitmap wallImage = Properties.Resources.wall;
@@ -101,7 +101,7 @@ namespace Covid_19_Game
                     sanitizer[i].CharacterPB.Left = 1000;
                     lblOutput.Text = "Sanitizers Collected: " + count;
 
-                    if (count == 5)
+                    if (count == numberOfsanitizers)
                     {
                         DialogResult result = MessageBox.Show("You win! Try again? ", "Congratulations! ", MessageBoxButtons.YesNo);
                         if (result == DialogResult.Yes)
