@@ -27,7 +27,7 @@ namespace Covid_19_Game
         Bitmap personImage = Properties.Resources.person;
         Bitmap sanitizerImage = Properties.Resources.sanitizer;
 
-        const int numberOfwalls = 5;
+        const int numberOfwalls = 1;
         Walls[] wall = new Walls[numberOfwalls];
 
         Bitmap wallImage = Properties.Resources.wall;
