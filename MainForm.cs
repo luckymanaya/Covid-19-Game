@@ -27,7 +27,7 @@ namespace Covid_19_Game
         Bitmap personImage = Properties.Resources.person;
         Bitmap sanitizerImage = Properties.Resources.sanitizer;
 
-        const int numberOfwalls = 5;
+        const int numberOfwalls = 10;
         Walls[] wall = new Walls[numberOfwalls];
 
         Bitmap wallImage = Properties.Resources.wall;
@@ -53,15 +53,14 @@ namespace Covid_19_Game
 
             for (int i = 0; i < wall.Length; i++)
             {
-                int xCoordinate = rand.Next(this.Width - 10);
-                int yCoordicate = rand.Next(this.Height - 10);
+                int xCoordinate = rand.Next(this.Width - 50);
+                int yCoordicate = rand.Next(this.Height - 50);
 
                 wall[i] = new Walls(xCoordinate, yCoordicate, wallImage);
                 Controls.Add(wall[i].WallPB);
-
             }
-        }
 
+        }
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             int right = 1;
@@ -87,8 +86,45 @@ namespace Covid_19_Game
             {
                 person.moveRightLeft(left, Distance);
             }
-        }
 
+
+            for (int i = 0; i < wall.Length; i++)
+            {
+
+                int x = person.Location.X;
+                int y = person.Location.Y;
+
+                if (e.KeyCode == Keys.Up) y -= 5;
+                {
+                    if (person.Bounds.IntersectsWith(wall[i].Bounds) == false)
+                    {
+                        person.Location = new Point(x, y);
+                    }
+                    if (e.KeyCode == Keys.Down) y += 5;
+                    {
+                        if (person.Bounds.IntersectsWith(wall[i].Bounds) == false)
+                        {
+                            person.Location = new Point(x, y);
+                        }
+                        if (e.KeyCode == Keys.Left) x -= 5;
+                        {
+                            if (person.Bounds.IntersectsWith(wall[i].Bounds) == false)
+                            {
+                                person.Location = new Point(x, y);
+                            }
+                            if (e.KeyCode == Keys.Right) x += 5;
+                            {
+                                if (person.Bounds.IntersectsWith(wall[i].Bounds) == false)
+                                {
+                                    person.Location = new Point(x, y);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+                    
         private void timer_Tick(object sender, EventArgs e)
         {
 
@@ -115,6 +151,10 @@ namespace Covid_19_Game
 
                     }
                 }
+            }
+           
+            {
+
             }
         }
 

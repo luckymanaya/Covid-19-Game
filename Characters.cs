@@ -11,6 +11,7 @@ namespace Covid_19_Game
     class Characters
     {
         PictureBox characterPB;
+        internal Point Location;
 
         public Characters(int goLeft, int goTop, Bitmap Imagefile)
         {
@@ -25,6 +26,9 @@ namespace Covid_19_Game
             get { return characterPB; }
             set { characterPB = value; }
         }
+        public System.Drawing.Rectangle
+        Bounds
+        { get; set; }
 
         public void moveUpDown(int direction, int distance)
         {

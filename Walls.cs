@@ -19,10 +19,14 @@ namespace Covid_19_Game
                 wallPB.Top = goTop;
                 wallPB.SizeMode = PictureBoxSizeMode.StretchImage;
             }
-                public PictureBox WallPB
+            public PictureBox WallPB
         {
             get { return wallPB; }
             set { wallPB = value; }
         }
+        public System.Drawing.Rectangle
+        Bounds
+        { get; set; }
+    
     }
 }
