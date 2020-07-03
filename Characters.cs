@@ -11,8 +11,6 @@ namespace Covid_19_Game
     class Characters
     {
         PictureBox characterPB;
-        internal Point Location;
-
         public Characters(int goLeft, int goTop, Bitmap Imagefile)
         {
             characterPB = new PictureBox();

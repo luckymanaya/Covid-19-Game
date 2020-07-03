@@ -27,11 +27,11 @@ namespace Covid_19_Game
         Bitmap personImage = Properties.Resources.person;
         Bitmap sanitizerImage = Properties.Resources.sanitizer;
 
-        const int numberOfwalls = 10;
+
+        const int numberOfwalls = 4;
         Walls[] wall = new Walls[numberOfwalls];
 
         Bitmap wallImage = Properties.Resources.wall;
-
         private void Form1_Load(object sender, EventArgs e)
         {
             for (int i = 0; i < sanitizer.Length; i++)
@@ -86,48 +86,35 @@ namespace Covid_19_Game
             {
                 person.moveRightLeft(left, Distance);
             }
-
+          
 
             for (int i = 0; i < wall.Length; i++)
             {
-
-                int x = person.Location.X;
-                int y = person.Location.Y;
-
-                if (e.KeyCode == Keys.Up) y -= 5;
+                if (person.CharacterPB.Bounds.IntersectsWith(wall[i].WallPB.Bounds))
                 {
-                    if (person.Bounds.IntersectsWith(wall[i].Bounds) == false)
+                    if (e.KeyCode == Keys.Up)
                     {
-                        person.Location = new Point(x, y);
+                        person.moveUpDown(down, Distance);
                     }
-                    if (e.KeyCode == Keys.Down) y += 5;
+                    if (e.KeyCode == Keys.Down)
                     {
-                        if (person.Bounds.IntersectsWith(wall[i].Bounds) == false)
-                        {
-                            person.Location = new Point(x, y);
-                        }
-                        if (e.KeyCode == Keys.Left) x -= 5;
-                        {
-                            if (person.Bounds.IntersectsWith(wall[i].Bounds) == false)
-                            {
-                                person.Location = new Point(x, y);
-                            }
-                            if (e.KeyCode == Keys.Right) x += 5;
-                            {
-                                if (person.Bounds.IntersectsWith(wall[i].Bounds) == false)
-                                {
-                                    person.Location = new Point(x, y);
-                                }
-                            }
-                        }
+                        person.moveUpDown(up, Distance);
+                    }
+                    if (e.KeyCode == Keys.Right)
+                    {
+                        person.moveRightLeft(left, Distance);
+                    }
+                    if (e.KeyCode == Keys.Left)
+                    {
+                        person.moveRightLeft(right, Distance);
                     }
                 }
             }
         }
-                    
+    
+
         private void timer_Tick(object sender, EventArgs e)
         {
-
             for (int i = 0; i < sanitizer.Length; i++)
             {
                 if (person.CharacterPB.Bounds.IntersectsWith(sanitizer[i].CharacterPB.Bounds))
@@ -150,14 +137,15 @@ namespace Covid_19_Game
                         }
 
                     }
+
                 }
             }
-           
-            {
 
-            }
         }
-
     }
 }
-            
+    
+
+
+
+

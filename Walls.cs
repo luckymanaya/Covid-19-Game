@@ -27,6 +27,6 @@ namespace Covid_19_Game
         public System.Drawing.Rectangle
         Bounds
         { get; set; }
-    
+
     }
 }

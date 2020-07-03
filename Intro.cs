@@ -29,5 +29,28 @@ namespace Covid_19_Game
 
             Hide();//Hides the current form
         }
+
+        private void btnWrite_Click(object sender, EventArgs e)
+        {
+            string info = txtbxAddInfo.Text;
+            System.IO.File.WriteAllText("../../../../Textfile.txt", info);
+
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter("../../../../Textfile.txt", true))
+            {
+                file.WriteLine(info);
+            }
+        }
+
+        private void btnRead_Click(object sender, EventArgs e)
+        {
+            string text = System.IO.File.ReadAllText("../../../../Textfile.txt");
+            lblData.Text = text;
+            string[] output = System.IO.File.ReadAllLines("../../../../Textfile.txt");
+
+            for (int i = 0; i < output.Length; i++)
+            {
+                lblData.Text = (output[i]);
+            }
+        }
     }
 }
