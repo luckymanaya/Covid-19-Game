@@ -31,21 +31,33 @@
             this.components = new System.ComponentModel.Container();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.lblOutput = new System.Windows.Forms.Label();
+            this.lblUser = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblOutput
             // 
             this.lblOutput.AutoSize = true;
-            this.lblOutput.Location = new System.Drawing.Point(35, 13);
+            this.lblOutput.Location = new System.Drawing.Point(139, 9);
             this.lblOutput.Name = "lblOutput";
             this.lblOutput.Size = new System.Drawing.Size(0, 13);
             this.lblOutput.TabIndex = 0;
+            // 
+            // lblUser
+            // 
+            this.lblUser.AutoSize = true;
+            this.lblUser.Location = new System.Drawing.Point(12, 9);
+            this.lblUser.Name = "lblUser";
+            this.lblUser.Size = new System.Drawing.Size(35, 13);
+            this.lblUser.TabIndex = 1;
+            this.lblUser.Text = "label1";
+            this.lblUser.Click += new System.EventHandler(this.lblUser_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(770, 361);
+            this.ClientSize = new System.Drawing.Size(784, 361);
+            this.Controls.Add(this.lblUser);
             this.Controls.Add(this.lblOutput);
             this.Name = "MainForm";
             this.Text = "Form1";
@@ -60,6 +72,7 @@
 
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.Label lblOutput;
+        private System.Windows.Forms.Label lblUser;
     }
 }
 

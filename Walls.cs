@@ -11,14 +11,14 @@ namespace Covid_19_Game
     class Walls
     {
             PictureBox wallPB;
-            public Walls(int goLeft, int goTop, Bitmap Imagefile)
-            {
-                wallPB = new PictureBox();
-                wallPB.Image = Imagefile;
-                wallPB.Left = goLeft;
-                wallPB.Top = goTop;
-                wallPB.SizeMode = PictureBoxSizeMode.StretchImage;
-            }
+        public Walls(int goLeft, int goTop, Bitmap Imagefile)
+        {
+            wallPB = new PictureBox();
+            wallPB.Image = Imagefile;
+            wallPB.Left = goLeft;
+            wallPB.Top = goTop;
+            wallPB.SizeMode = PictureBoxSizeMode.AutoSize;
+        }
             public PictureBox WallPB
         {
             get { return wallPB; }

@@ -19,37 +19,37 @@ namespace Covid_19_Game
 
         private void Intro_Load(object sender, EventArgs e)
         {
-
         }
 
         private void btnPlay_Click(object sender, EventArgs e)
         {
-            MainForm f1 = new MainForm();//Declares the 'MainForm' as f1
-            f1.Show();//f1 is shown when the 'play' button is clicked
+        //    MainForm f1 = new MainForm();//Declares the 'MainForm' as f1
+        //    f1.Show();//f1 is shown when the 'play' button is clicked
 
-            Hide();//Hides the current form
+        //    Hide();//Hides the current form
         }
 
         private void btnWrite_Click(object sender, EventArgs e)
         {
             string info = txtbxAddInfo.Text;
-            System.IO.File.WriteAllText("../../../../Textfile.txt", info);
+            System.IO.File.WriteAllText("Textfile.txt", info);
 
-            using (System.IO.StreamWriter file = new System.IO.StreamWriter("../../../../Textfile.txt", true))
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter("Textfile.txt", true))
             {
                 file.WriteLine(info);
             }
         }
 
-        private void btnRead_Click(object sender, EventArgs e)
+        private void btnPlay_Click_1(object sender, EventArgs e)
         {
-            string text = System.IO.File.ReadAllText("../../../../Textfile.txt");
-            lblData.Text = text;
-            string[] output = System.IO.File.ReadAllLines("../../../../Textfile.txt");
+            string text = System.IO.File.ReadAllText("Textfile.txt");
+
+            string[] output = System.IO.File.ReadAllLines("Textfile.txt");
 
             for (int i = 0; i < output.Length; i++)
             {
-                lblData.Text = (output[i]);
+                MainForm f1 = new MainForm(txtbxAddInfo.Text);
+                f1.Show();
             }
         }
     }

@@ -12,10 +12,12 @@ namespace Covid_19_Game
 {
     public partial class MainForm : Form
     {
-        public MainForm()
+        public MainForm(string text)
         {
             InitializeComponent();
+            lblUser.Text = text;
         }
+       
         int count;
         Random rand = new Random();
         Timer gameTimer = new Timer();
@@ -32,12 +34,13 @@ namespace Covid_19_Game
         Walls[] wall = new Walls[numberOfwalls];
 
         Bitmap wallImage = Properties.Resources.wall;
+       
         private void Form1_Load(object sender, EventArgs e)
         {
             for (int i = 0; i < sanitizer.Length; i++)
             {
-                int xCoordinate = rand.Next(this.Width - 5);
-                int yCoordinate = rand.Next(this.Height - 5);
+                int xCoordinate = rand.Next(this.Width - 50);
+                int yCoordinate = rand.Next(this.Height - 50);
 
                 sanitizer[i] = new Characters(xCoordinate, yCoordinate, sanitizerImage);
                 Controls.Add(sanitizer[i].CharacterPB);
@@ -53,8 +56,8 @@ namespace Covid_19_Game
 
             for (int i = 0; i < wall.Length; i++)
             {
-                int xCoordinate = rand.Next(this.Width - 50);
-                int yCoordicate = rand.Next(this.Height - 50);
+                int xCoordinate = rand.Next(this.Width - 20);
+                int yCoordicate = rand.Next(this.Height - 20);
 
                 wall[i] = new Walls(xCoordinate, yCoordicate, wallImage);
                 Controls.Add(wall[i].WallPB);
@@ -86,7 +89,7 @@ namespace Covid_19_Game
             {
                 person.moveRightLeft(left, Distance);
             }
-          
+
 
             for (int i = 0; i < wall.Length; i++)
             {
@@ -140,6 +143,11 @@ namespace Covid_19_Game
 
                 }
             }
+
+        }
+
+        private void lblUser_Click(object sender, EventArgs e)
+        {
 
         }
     }
