@@ -16,9 +16,7 @@ namespace Covid_19_Game
         {
             InitializeComponent();
             lblUser.Text = ("Name: " + text);
-
         }
-            
         int count;
         Random rand = new Random();
         Timer gameTimer = new Timer();
@@ -57,13 +55,13 @@ namespace Covid_19_Game
             for (int i = 0; i < wall.Length; i++)
             {
                 int xCoordinate = rand.Next(this.Width - 50);
-                int yCoordicate = rand.Next(this.Height - 50);
+                int yCoordinate = rand.Next(this.Height - 50);
 
-                wall[i] = new Walls(xCoordinate, yCoordicate, wallImage);
+                wall[i] = new Walls(xCoordinate, yCoordinate, wallImage);
                 Controls.Add(wall[i].WallPB);
             }
-
         }
+        
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             int right = 1;

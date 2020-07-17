@@ -11,7 +11,6 @@ namespace Covid_19_Game
     class Walls
     {
         PictureBox wallPB;
-
         public Walls(int goLeft, int goTop, Bitmap Imagefile)
         {
             wallPB = new PictureBox();
