@@ -17,39 +17,45 @@ namespace Covid_19_Game
             InitializeComponent();
         }
 
+        private bool buttonClicked = false;
         private void Intro_Load(object sender, EventArgs e)
         {
         }
-
-        private void btnPlay_Click(object sender, EventArgs e)
+        private void btnPlay_Click_1(object sender, EventArgs e)
         {
-        //    MainForm f1 = new MainForm();//Declares the 'MainForm' as f1
-        //    f1.Show();//f1 is shown when the 'play' button is clicked
+            string text = System.IO.File.ReadAllText("Textfile.txt");
+            string[] output = System.IO.File.ReadAllLines("Textfile.txt");
 
-        //    Hide();//Hides the current form
+            for (int i = 0; i < output.Length; i++)
+            {
+                MainForm f2 = new MainForm(txtbxInput.Text);
+                if (string.IsNullOrWhiteSpace(txtbxInput.Text))
+                {
+                    f2.Hide();
+                    MessageBox.Show("What's your name?");
+                }
+                else if (buttonClicked == false)
+                {
+                    f2.Hide();
+                    MessageBox.Show("Did you write your name?");
+                }
+                else
+                {
+                    f2.Show();
+                    Hide();
+                }
+            }
         }
 
-        private void btnWrite_Click(object sender, EventArgs e)
+        private void btnDone_Click_1(object sender, EventArgs e)
         {
-            string info = txtbxAddInfo.Text;
+            buttonClicked = true;
+            string info = txtbxInput.Text;
             System.IO.File.WriteAllText("Textfile.txt", info);
 
             using (System.IO.StreamWriter file = new System.IO.StreamWriter("Textfile.txt", true))
             {
                 file.WriteLine(info);
-            }
-        }
-
-        private void btnPlay_Click_1(object sender, EventArgs e)
-        {
-            string text = System.IO.File.ReadAllText("Textfile.txt");
-
-            string[] output = System.IO.File.ReadAllLines("Textfile.txt");
-
-            for (int i = 0; i < output.Length; i++)
-            {
-                MainForm f1 = new MainForm(txtbxAddInfo.Text);
-                f1.Show();
             }
         }
     }

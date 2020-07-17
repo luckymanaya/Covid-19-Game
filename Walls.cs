@@ -10,14 +10,15 @@ namespace Covid_19_Game
 {
     class Walls
     {
-            PictureBox wallPB;
+        PictureBox wallPB;
+
         public Walls(int goLeft, int goTop, Bitmap Imagefile)
         {
             wallPB = new PictureBox();
             wallPB.Image = Imagefile;
             wallPB.Left = goLeft;
             wallPB.Top = goTop;
-            wallPB.SizeMode = PictureBoxSizeMode.AutoSize;
+            wallPB.SizeMode = PictureBoxSizeMode.StretchImage;
         }
             public PictureBox WallPB
         {
@@ -27,6 +28,5 @@ namespace Covid_19_Game
         public System.Drawing.Rectangle
         Bounds
         { get; set; }
-
     }
 }

@@ -15,9 +15,10 @@ namespace Covid_19_Game
         public MainForm(string text)
         {
             InitializeComponent();
-            lblUser.Text = text;
+            lblUser.Text = ("Name: " + text);
+
         }
-       
+            
         int count;
         Random rand = new Random();
         Timer gameTimer = new Timer();
@@ -29,12 +30,11 @@ namespace Covid_19_Game
         Bitmap personImage = Properties.Resources.person;
         Bitmap sanitizerImage = Properties.Resources.sanitizer;
 
-
-        const int numberOfwalls = 4;
+        const int numberOfwalls = 2;
         Walls[] wall = new Walls[numberOfwalls];
 
         Bitmap wallImage = Properties.Resources.wall;
-       
+
         private void Form1_Load(object sender, EventArgs e)
         {
             for (int i = 0; i < sanitizer.Length; i++)
@@ -56,8 +56,8 @@ namespace Covid_19_Game
 
             for (int i = 0; i < wall.Length; i++)
             {
-                int xCoordinate = rand.Next(this.Width - 20);
-                int yCoordicate = rand.Next(this.Height - 20);
+                int xCoordinate = rand.Next(this.Width - 50);
+                int yCoordicate = rand.Next(this.Height - 50);
 
                 wall[i] = new Walls(xCoordinate, yCoordicate, wallImage);
                 Controls.Add(wall[i].WallPB);
@@ -125,7 +125,7 @@ namespace Covid_19_Game
                     count++;
                     sanitizer[i].CharacterPB.Top = 1000;
                     sanitizer[i].CharacterPB.Left = 1000;
-                    lblOutput.Text = "Sanitizers Collected: " + count;
+                    lblOutput.Text = ("Sanitizers Collected: " + count);
 
                     if (count == numberOfsanitizers)
                     {
