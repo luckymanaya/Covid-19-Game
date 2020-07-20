@@ -16,6 +16,7 @@ namespace Covid_19_Game
         {
             InitializeComponent();
             lblUser.Text = ("Name: " + text);
+
         }
         int count;
         Random rand = new Random();
@@ -28,19 +29,22 @@ namespace Covid_19_Game
         Bitmap personImage = Properties.Resources.person;
         Bitmap sanitizerImage = Properties.Resources.sanitizer;
 
-        const int numberOfwalls = 2;
+        const int numberOfwalls = 8;
         Walls[] wall = new Walls[numberOfwalls];
 
-        Bitmap wallImage = Properties.Resources.wall;
 
-        private void Form1_Load(object sender, EventArgs e)
+        Bitmap wallImage = Properties.Resources.wall;
+       
+         
+    private void Form1_Load(object sender, EventArgs e)
         {
             for (int i = 0; i < sanitizer.Length; i++)
             {
-                int xCoordinate = rand.Next(this.Width - 50);
-                int yCoordinate = rand.Next(this.Height - 50);
+                int xCoordinate = rand.Next(this.Width - 100);
+                int yCoordinate = rand.Next(this.Height - 100);
 
                 sanitizer[i] = new Characters(xCoordinate, yCoordinate, sanitizerImage);
+
                 Controls.Add(sanitizer[i].CharacterPB);
             }
             person = new Characters(200, 200, personImage);
@@ -52,16 +56,22 @@ namespace Covid_19_Game
             gameTimer.Tick += new EventHandler(timer_Tick);
             KeyDown += new KeyEventHandler(Form1_KeyDown);
 
+
             for (int i = 0; i < wall.Length; i++)
             {
-                int xCoordinate = rand.Next(this.Width - 50);
-                int yCoordinate = rand.Next(this.Height - 50);
+                wall[0] = new Walls(40, 100, wallImage);
+                wall[1] = new Walls(40, 250, wallImage);
+                wall[2] = new Walls(300, 200, wallImage);
+                wall[3] = new Walls(300, 350, wallImage);
+                wall[4] = new Walls(550, 100, wallImage);
+                wall[5] = new Walls(550, 250, wallImage);
+                wall[6] = new Walls(750, 200, wallImage);
+                wall[7] = new Walls(750, 350, wallImage);
 
-                wall[i] = new Walls(xCoordinate, yCoordinate, wallImage);
                 Controls.Add(wall[i].WallPB);
             }
         }
-        
+
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             int right = 1;
@@ -87,7 +97,6 @@ namespace Covid_19_Game
             {
                 person.moveRightLeft(left, Distance);
             }
-
 
             for (int i = 0; i < wall.Length; i++)
             {

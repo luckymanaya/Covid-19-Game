@@ -58,7 +58,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
-            this.ClientSize = new System.Drawing.Size(797, 361);
+            this.ClientSize = new System.Drawing.Size(912, 423);
             this.Controls.Add(this.lblUser);
             this.Controls.Add(this.lblOutput);
             this.Name = "MainForm";
