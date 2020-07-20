@@ -32,11 +32,13 @@ namespace Covid_19_Game
         const int numberOfwalls = 8;
         Walls[] wall = new Walls[numberOfwalls];
 
-
         Bitmap wallImage = Properties.Resources.wall;
-       
-         
-    private void Form1_Load(object sender, EventArgs e)
+
+        const int numberOfvirus = 2;
+        Viruses[] virus = new Viruses[numberOfvirus];
+
+        Bitmap virusImage = Properties.Resources.virus;
+        private void Form1_Load(object sender, EventArgs e)
         {
             for (int i = 0; i < sanitizer.Length; i++)
             {
@@ -69,6 +71,13 @@ namespace Covid_19_Game
                 wall[7] = new Walls(750, 350, wallImage);
 
                 Controls.Add(wall[i].WallPB);
+            }
+            for (int i = 0; i < virus.Length; i++)
+            {
+                virus[0] = new Viruses(50, 150, virusImage);
+                virus[1] = new Viruses(100, 350, virusImage);
+
+                Controls.Add(virus[i].VirusesPB);
             }
         }
 
