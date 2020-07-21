@@ -34,7 +34,7 @@ namespace Covid_19_Game
 
         Bitmap wallImage = Properties.Resources.wall;
 
-        const int numberOfvirus = 2;
+        const int numberOfvirus = 3;
         Viruses[] virus = new Viruses[numberOfvirus];
 
         Bitmap virusImage = Properties.Resources.virus;
@@ -75,7 +75,8 @@ namespace Covid_19_Game
             for (int i = 0; i < virus.Length; i++)
             {
                 virus[0] = new Viruses(50, 150, virusImage);
-                virus[1] = new Viruses(100, 350, virusImage);
+                virus[1] = new Viruses(200, 350, virusImage);
+                virus[2] = new Viruses(500, 150, virusImage);
 
                 Controls.Add(virus[i].VirusesPB);
             }
@@ -130,10 +131,26 @@ namespace Covid_19_Game
                 }
             }
         }
-    
+
 
         private void timer_Tick(object sender, EventArgs e)
         {
+            for (int i = 0; i < virus.Length; i++)
+            {
+                if (person.CharacterPB.Bounds.IntersectsWith(virus[i].VirusesPB.Bounds))
+                {
+                    timer.Stop();
+                    DialogResult result = MessageBox.Show("You lose! Try again? ", "GAME OVER! ", MessageBoxButtons.YesNo);
+                    if (result == DialogResult.Yes)
+                    {
+                        Application.Restart();
+                    }
+                    else if (result == DialogResult.No)
+                    {
+                        Application.Exit();
+                    }
+                }
+            }
             for (int i = 0; i < sanitizer.Length; i++)
             {
                 if (person.CharacterPB.Bounds.IntersectsWith(sanitizer[i].CharacterPB.Bounds))
@@ -159,7 +176,6 @@ namespace Covid_19_Game
 
                 }
             }
-
         }
 
         private void lblUser_Click(object sender, EventArgs e)

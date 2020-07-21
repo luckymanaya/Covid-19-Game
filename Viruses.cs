@@ -30,14 +30,7 @@ namespace Covid_19_Game
         Bounds
         { get; set; }
 
-        public void moveUpDown(int direction, int distance)
-        {
-            virusesPB.Top = virusesPB.Top + (direction * distance);
-        }
-        public void moveRightLeft(int direction, int distance)
-        {
-            virusesPB.Left = virusesPB.Left + (direction * distance);
-        }
+
     }
 }
 
