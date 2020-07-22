@@ -51,7 +51,6 @@
             this.lblUser.Name = "lblUser";
             this.lblUser.Size = new System.Drawing.Size(0, 23);
             this.lblUser.TabIndex = 1;
-            this.lblUser.Click += new System.EventHandler(this.lblUser_Click);
             // 
             // MainForm
             // 

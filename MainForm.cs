@@ -91,23 +91,24 @@ namespace Covid_19_Game
 
             int Distance = 15;
 
-            if (e.KeyCode == Keys.Up)
+            if (e.KeyCode == Keys.Up)//If user wants to go up, then 'person' moves up
             {
-                person.moveUpDown(up, Distance);
+                person.moveUpDown(up, Distance); //'person' moves up
             }
-            if (e.KeyCode == Keys.Down)
+            if (e.KeyCode == Keys.Down)//If user wants to go down, then 'person' moves down
             {
                 person.moveUpDown(down, Distance);
             }
-            if (e.KeyCode == Keys.Right)
+            if (e.KeyCode == Keys.Right)//If user wants to go right, then 'person' moves right
             {
                 person.moveRightLeft(right, Distance);
             }
-            if (e.KeyCode == Keys.Left)
+            if (e.KeyCode == Keys.Left)//If user wants to go left, then 'person' moves left
             {
                 person.moveRightLeft(left, Distance);
             }
 
+            //These are the codes for when the 'person' intersects with the 'wall'
             for (int i = 0; i < wall.Length; i++)
             {
                 if (person.CharacterPB.Bounds.IntersectsWith(wall[i].WallPB.Bounds))
@@ -139,37 +140,43 @@ namespace Covid_19_Game
             {
                 if (person.CharacterPB.Bounds.IntersectsWith(virus[i].VirusesPB.Bounds))
                 {
-                    timer.Stop();
+                    gameTimer.Stop();//Timer stops
+                    lblOutput.Text = ("Game Over!");//Shows that the game is over on the label once the 'person' intersects with the 'virus'
+
+                    //This messagebox will show up when the game is over and that it also provides the user a 'yes' or 'no' options
                     DialogResult result = MessageBox.Show("You lose! Try again? ", "GAME OVER! ", MessageBoxButtons.YesNo);
-                    if (result == DialogResult.Yes)
+                    if (result == DialogResult.Yes) //If user clicks 'yes', then program restarts
                     {
-                        Application.Restart();
+                     Application.Restart(); //Program restarts
                     }
-                    else if (result == DialogResult.No)
+                     else if (result == DialogResult.No) //If user clicks 'no', then program stops running
                     {
-                        Application.Exit();
+                            Application.Exit();//Program stops running
                     }
+                    
                 }
             }
             for (int i = 0; i < sanitizer.Length; i++)
             {
                 if (person.CharacterPB.Bounds.IntersectsWith(sanitizer[i].CharacterPB.Bounds))
                 {
-                    count++;
+                    count++;//Stores the number of sanitizers collected
                     sanitizer[i].CharacterPB.Top = 1000;
                     sanitizer[i].CharacterPB.Left = 1000;
-                    lblOutput.Text = ("Sanitizers Collected: " + count);
+                    lblOutput.Text = ("Sanitizers Collected: " + count);//Shows the number of sanitizers collected during the game
 
-                    if (count == numberOfsanitizers)
+                    if (count == numberOfsanitizers) //If number of sanitizers collected by the user is equal to the number of sanitizers in the game, then user wins which is shown by a messagebox and a label
                     {
+                        lblOutput.Text = ("Good job!"); //Shows up when the user collects all sanitizers, indicating that the user won
+                        //This messagebox shows up when the user wins and it also provides a 'yes' or 'no' options 
                         DialogResult result = MessageBox.Show("You win! Try again? ", "Congratulations! ", MessageBoxButtons.YesNo);
-                        if (result == DialogResult.Yes)
+                        if (result == DialogResult.Yes)//If user clicks 'yes', then program restarts
                         {
-                            Application.Restart();
+                            Application.Restart(); //Program restarts
                         }
-                        else if (result == DialogResult.No)
+                        else if (result == DialogResult.No) //If user clicks 'no', then program stops running
                         {
-                            Application.Exit();
+                            Application.Exit();//Program stops running
                         }
 
                     }
@@ -178,10 +185,6 @@ namespace Covid_19_Game
             }
         }
 
-        private void lblUser_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
     
