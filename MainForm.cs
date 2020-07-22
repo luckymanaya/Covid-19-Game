@@ -18,23 +18,23 @@ namespace Covid_19_Game
             lblUser.Text = ("Name: " + text);
 
         }
-        int count;
+        int count; //Declares the integer
         Random rand = new Random();
         Timer gameTimer = new Timer();
 
-        const int numberOfsanitizers = 5;
+        const int numberOfsanitizers = 5; //It declares the number of sanitizers for the program which is 5
         Characters[] sanitizer = new Characters[numberOfsanitizers];
         Characters person;
 
         Bitmap personImage = Properties.Resources.person;
         Bitmap sanitizerImage = Properties.Resources.sanitizer;
 
-        const int numberOfwalls = 8;
+        const int numberOfwalls = 8; //It declares the number of walls for the program which is 8
         Walls[] wall = new Walls[numberOfwalls];
 
         Bitmap wallImage = Properties.Resources.wall;
 
-        const int numberOfvirus = 3;
+        const int numberOfvirus = 3;//It declares the number of viruses on the program which is 3
         Viruses[] virus = new Viruses[numberOfvirus];
 
         Bitmap virusImage = Properties.Resources.virus;

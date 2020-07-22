@@ -13,11 +13,11 @@ namespace Covid_19_Game
         PictureBox characterPB;
         public Characters(int goLeft, int goTop, Bitmap Imagefile)
         {
-            characterPB = new PictureBox();
-            characterPB.Image = Imagefile;
+            characterPB = new PictureBox();//Makes a new instance of the picturebox
+            characterPB.Image = Imagefile;//Gets or set the picture of the sanitizer and the person from the picturebox
             characterPB.Left = goLeft;
             characterPB.Top = goTop;
-            characterPB.SizeMode = PictureBoxSizeMode.StretchImage;
+            characterPB.SizeMode = PictureBoxSizeMode.StretchImage;//It makes the pictures for both the sanitizers and the person to fit the size of the picturebox
         }
         public PictureBox CharacterPB
         {
