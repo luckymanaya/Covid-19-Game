@@ -27,13 +27,13 @@ namespace Covid_19_Game
             get { return virusesPB; }
             set { virusesPB = value; }
         }
-        
+
         //Gets or sets the size of the object
         public System.Drawing.Rectangle
         Bounds
         { get; set; }
-
-
     }
 }
+    
+
 

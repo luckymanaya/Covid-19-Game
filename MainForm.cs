@@ -12,7 +12,7 @@ namespace Covid_19_Game
 {
     public partial class MainForm : Form
     {
-        public MainForm(string text)
+        public MainForm(string text) //Declares the string for the name of the user which will show up on the MainForm
         {
             InitializeComponent();
             lblUser.Text = ("Name: " + text); //This shows up on the left side of the form as an output for the user's name
@@ -23,21 +23,21 @@ namespace Covid_19_Game
         Timer gameTimer = new Timer();//Makes a new instance of the timer
 
         const int numberOfsanitizers = 5; //It declares the number of sanitizers for the program which is 5
-        Characters[] sanitizer = new Characters[numberOfsanitizers];
+        Characters[] sanitizer = new Characters[numberOfsanitizers]; //An array for the 'sanitizer'
         Characters person;
 
-        Bitmap personImage = Properties.Resources.person;
-        Bitmap sanitizerImage = Properties.Resources.sanitizer;
+        Bitmap personImage = Properties.Resources.person; //To find the resources for the 'person'
+        Bitmap sanitizerImage = Properties.Resources.sanitizer; //To find the resources for the 'sanitizer'
 
         const int numberOfwalls = 8; //It declares the number of walls for the program which is 8
-        Walls[] wall = new Walls[numberOfwalls];
+        Walls[] wall = new Walls[numberOfwalls]; //An array for the 'walls'
 
-        Bitmap wallImage = Properties.Resources.wall;
+        Bitmap wallImage = Properties.Resources.wall; //To find the resources for the 'wall'
 
         const int numberOfvirus = 3;//It declares the number of viruses on the program which is 3
-        Viruses[] virus = new Viruses[numberOfvirus];
+        Viruses[] virus = new Viruses[numberOfvirus]; //An array for the 'virus'
 
-        Bitmap virusImage = Properties.Resources.virus;
+        Bitmap virusImage = Properties.Resources.virus; //To find the resources for the 'virus'
         private void Form1_Load(object sender, EventArgs e)
         {
             //This loops the 'sanitizers' and in this case, there would be 5 sanitizers
@@ -47,14 +47,14 @@ namespace Covid_19_Game
                 int xCoordinate = rand.Next(this.Width - 100);
                 int yCoordinate = rand.Next(this.Height - 100);
 
-                sanitizer[i] = new Characters(xCoordinate, yCoordinate, sanitizerImage);
+                sanitizer[i] = new Characters(xCoordinate, yCoordinate, sanitizerImage); //Sets up the location for the 'sanitizer'
 
                 Controls.Add(sanitizer[i].CharacterPB);
             }
-            person = new Characters(200, 200, personImage);
+            person = new Characters(200, 200, personImage); //Sets up the location for the 'person'
             Controls.Add(person.CharacterPB);
 
-            gameTimer.Enabled = true;
+            gameTimer.Enabled = true; //Enables the timer
             gameTimer.Interval = 500;
 
             //This creates the timer event
@@ -142,6 +142,7 @@ namespace Covid_19_Game
                     }
                 }
             }
+           
         }
 
 
@@ -197,6 +198,7 @@ namespace Covid_19_Game
         }
 
     }
+   
 }
     
 

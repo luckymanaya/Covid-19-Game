@@ -43,6 +43,8 @@ namespace Covid_19_Game
                 {
                     f2.Show(); //The MainForm will show up
                     Hide();//This hides the current form which is the Intro form
+                    //This messagebox shows up once the 'play' button is clicked as it is the instructions for the game
+                    MessageBox.Show("Mission: The goal is to collect all the sanitizers and most importantly... " + "\r\n" + "STAY AWAY FROM THE VIRUS!" + "\r\n" + "Use the arrow keys on the keyboard to move.", "Instructions:"); 
                 }
             }
         }
