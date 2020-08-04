@@ -44,8 +44,8 @@ namespace Covid_19_Game
             for (int i = 0; i < sanitizer.Length; i++)
             {
                 //This randomizes the 'sanitizers' and it also deletes the number of pixels so that the 'sanitizers' stays inside the 'MainForm'
-                int xCoordinate = rand.Next(this.Width - 100);
-                int yCoordinate = rand.Next(this.Height - 100);
+                int xCoordinate = rand.Next(this.Width - 150);
+                int yCoordinate = rand.Next(this.Height - 150);
 
                 sanitizer[i] = new Characters(xCoordinate, yCoordinate, sanitizerImage); //Sets up the location for the 'sanitizer'
 
@@ -67,8 +67,8 @@ namespace Covid_19_Game
             for (int i = 0; i < wall.Length; i++)
             {
                 //Sets up the locations for each 'wall'
-                wall[0] = new Walls(40, 100, wallImage);
-                wall[1] = new Walls(40, 250, wallImage);
+                wall[0] = new Walls(50, 100, wallImage);
+                wall[1] = new Walls(30, 250, wallImage);
                 wall[2] = new Walls(300, 200, wallImage);
                 wall[3] = new Walls(300, 350, wallImage);
                 wall[4] = new Walls(550, 100, wallImage);

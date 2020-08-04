@@ -37,7 +37,7 @@ namespace Covid_19_Game
                 else if (buttonClicked == false) //If the 'done' button is not selected, then a messagebox will show up and the MainForm will not show up
                 {
                     f2.Hide();//Hides the MainForm
-                    MessageBox.Show("Did you write your name?");//Shows up when the 'Done' button is not selected
+                    MessageBox.Show("Did you write your name?", "Select the 'Done' button");//Shows up when the 'Done' button is not selected
                 }
                 else //An 'else' code for when the textbox is not empty and the 'done' button is selected
                 {
