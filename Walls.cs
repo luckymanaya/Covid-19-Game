@@ -10,7 +10,8 @@ namespace Covid_19_Game
 {
     class Walls
     {
-        PictureBox wallPB;//Declares the global variable
+        //Declares the global variable
+        PictureBox wallPB;
         public Walls(int goLeft, int goTop, Bitmap Imagefile)
         {
             //Sets up the picturebox for the 'wall'
@@ -18,9 +19,12 @@ namespace Covid_19_Game
             wallPB.Image = Imagefile;
             wallPB.Left = goLeft;
             wallPB.Top = goTop;
-            wallPB.SizeMode = PictureBoxSizeMode.StretchImage;//It makes the picture of the wall to fit the size of the picturebox
+            //It makes the picture of the wall to fit the size of the picturebox
+            wallPB.SizeMode = PictureBoxSizeMode.StretchImage;
         }
-            public PictureBox WallPB //This is the public accessor for the picturebox for the 'wall' so that it can be seen on the MainForm
+
+        //This is the public accessor for the picturebox for the 'wall' so that it can be seen on the MainForm
+        public PictureBox WallPB 
         {
             get { return wallPB; }
             set { wallPB = value; }

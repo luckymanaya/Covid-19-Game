@@ -11,8 +11,8 @@ namespace Covid_19_Game
 {
     class Viruses
     {
-
-        PictureBox virusesPB; //Declares the global variable
+        //Declares the global variable
+        PictureBox virusesPB; 
         public Viruses(int goLeft, int goTop, Bitmap Imagefile)
         {
             //Sets up the picturebox for the 'virus'
@@ -20,9 +20,11 @@ namespace Covid_19_Game
             virusesPB.Image = Imagefile;
             virusesPB.Left = goLeft;
             virusesPB.Top = goTop;
-            virusesPB.SizeMode = PictureBoxSizeMode.StretchImage;//It makes the image for the 'virus' to fit the size of the picturebox by stretching or shrinking it
+            //It makes the image for the 'virus' to fit the size of the picturebox by stretching or shrinking it
+            virusesPB.SizeMode = PictureBoxSizeMode.StretchImage;
         }
-        public PictureBox VirusesPB //Public accessor for the picturebox for the 'virus' so that it can be seen on the MainForm
+        //Public accessor for the picturebox for the 'virus' so that it can be seen on the MainForm
+        public PictureBox VirusesPB 
         {
             get { return virusesPB; }
             set { virusesPB = value; }

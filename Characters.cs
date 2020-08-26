@@ -10,7 +10,8 @@ namespace Covid_19_Game
 {
     class Characters
     {
-        PictureBox characterPB; //It declares the global variable
+        //It declares the global variable
+        PictureBox characterPB; 
         public Characters(int goLeft, int goTop, Bitmap Imagefile)
         {
             //This sets up the picturebox for the 'sanitizers' and the 'person'
@@ -18,9 +19,14 @@ namespace Covid_19_Game
             characterPB.Image = Imagefile;
             characterPB.Left = goLeft;
             characterPB.Top = goTop;
-            characterPB.SizeMode = PictureBoxSizeMode.StretchImage;//It makes the pictures for both the 'sanitizers' and the 'person' to fit the size of the picturebox
+
+            //It makes the pictures for both the 'sanitizers' and the 'person' to fit the size of the picturebox
+            characterPB.SizeMode = PictureBoxSizeMode.StretchImage;
         }
-        public PictureBox CharacterPB //This is the public accessor for the 'sanitizers' and the 'person' so that the picturebox can be seen on the MainForm
+
+        //This is the public accessor for the 'sanitizers' and the 'person' 
+        //so that the picturebox can be seen on the MainForm
+        public PictureBox CharacterPB 
         {
             get { return characterPB; }
             set { characterPB = value; }
